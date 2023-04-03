@@ -7,7 +7,7 @@ class Moeda:
         
     def converter_to(self, moeda, valor):
         if moeda.nome == self.nome:
-            return valor
+            return valor, self.simbolo
         converted_value = valor * self.valor / moeda.valor
         return round(converted_value, 2), moeda.simbolo
     
