@@ -14,12 +14,12 @@ class Conversor:
         euro = Euro()
         
         if self.moeda1 == real.nome and self.moeda2 == dolar.nome:
-            return self.valor / dolar.valor
+            return {"valor":self.valor / dolar.valor, "simbolo": dolar.simbolo} 
         elif self.moeda1 == dolar.nome and self.moeda2 == real.nome:
-            return self.valor * dolar.valor
+            return {"valor":self.valor * dolar.valor, "simbolo": real.simbolo} 
         elif self.moeda1 == real.nome and self.moeda2 == euro.nome:
-            return self.valor / euro.valor
+            return {"valor":self.valor / euro.valor, "simbolo": euro.simbolo} 
         elif self.moeda1 == euro.nome and self.moeda2 == real.nome:
-            return self.valor * euro.valor
+            return {"valor":self.valor * euro.valor, "simbolo": real.simbolo} 
         else: 
             return "Não foi possível coverter a moeda {} para {}".format(self.moeda1, self.moeda2)
