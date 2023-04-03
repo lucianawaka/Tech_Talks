@@ -2,6 +2,7 @@ from .Real import Real
 from .Dolar import Dolar
 from .Euro import Euro
 
+
 class Conversor:
     def __init__(self):
 
