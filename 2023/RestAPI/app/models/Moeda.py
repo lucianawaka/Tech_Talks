@@ -13,3 +13,10 @@ class Moeda:
     
     def __str__(self):
         return 'Moeda: {}, Simbolo: {}, Valor: {}'.format(self.nome, self.simbolo, self.valor)
+    
+    def to_json(self):
+        return {
+            'Moeda': self.nome,
+            'Simbolo': self.simbolo,
+            'Valor': self.valor,
+        }
