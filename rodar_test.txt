@@ -1,0 +1,6 @@
+
+# Todos os testes
+python -m unittest discover tests\unit
+
+# Test específico
+python -m unittest tests\unit\test_blog.py
