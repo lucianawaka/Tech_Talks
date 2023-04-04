@@ -1,9 +1,9 @@
 from models.Conversor import Conversor
+from flask import Flask
 
+app = Flask(__name__)
 
-def main():
+@app.get("/conversor")
+def get_moeda_convertida():
     conversor = Conversor()
-    print(conversor.converte("Euro","Real", 100))
-    
-if __name__== "__main__":
-    main()
+    return conversor.converte("Euro","Real", 100)
