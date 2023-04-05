@@ -1,27 +1,22 @@
-from models.Conversor import Conversor
-from models.Dolar import Dolar
-from models.Euro import Euro
-from models.Real import Real
-
 from flask import Flask
+from flask_smorest import Api
+
+from resources.moeda import blp as MoedaBlueprint
+from resources.conversor import blp as ConversorBlueprint
+#from resources.user import blp as UserBlueprint
 
 app = Flask(__name__)
 
-
-@app.route('/conversor/<string:moeda1>/<string:moeda2>/<string:valor>')
-def get_moeda_convertida(moeda1, moeda2, valor):
-    conversor = Conversor()
-    try:
-        valor_float = float(valor)
-    except ValueError:
-        return "O valor tem que ser um número real ou inteiro"
-    return conversor.converte(moeda1, moeda2, valor_float)
-
-@app.get('/moedas')
-def get_todas_moedas():
-    moedas = []
-    moedas.append(Dolar().to_json())
-    moedas.append(Euro().to_json())
-    moedas.append(Real().to_json())
-    return moedas
     
+app.config["PROPAGATE_EXCEPTIONS"] = True
+app.config["API_TITLE"] = "Conversor REST API"
+app.config["API_VERSION"] = "v1"
+app.config["OPENAPI_VERSION"] = "3.0.3"
+app.config["OPENAPI_URL_PREFIX"] = "/"
+app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui" 
+app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
+
+api= Api(app)
+
+api.register_blueprint(MoedaBlueprint)
+api.register_blueprint(ConversorBlueprint)
