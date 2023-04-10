@@ -22,7 +22,7 @@ class Conversor:
                 moeda2_obj = self.moedas[moeda2]
 
             if moeda1_obj.nome == moeda2_obj.nome:
-                return valor, moeda2_obj.simbolo
+                return jsonify({"valor":valor, "simbolo":moeda2_obj.simbolo})
             
             converted_value = valor * moeda1_obj.valor / moeda2_obj.valor
             valor_convertido = round(converted_value, 2)
