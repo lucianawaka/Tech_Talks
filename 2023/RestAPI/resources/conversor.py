@@ -7,7 +7,7 @@ from schemas import ConversorSchema
 # Conversor
 from models.Conversor import Conversor
 
-blp = Blueprint("conversor", __name__, description="Operações para Conversão de Moedas")
+blp = Blueprint("Conversor", __name__, description="Operações para Conversão de Moedas")
     
 @blp.route('/conversor/<string:moeda1>/<string:moeda2>/<string:valor>')
 class ConversorAPI(MethodView):
