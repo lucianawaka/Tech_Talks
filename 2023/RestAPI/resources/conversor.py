@@ -3,6 +3,7 @@ from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from flask_jwt_extended import jwt_required
 from schemas import ConversorSchema
+from flask import jsonify
 
 # Conversor
 from models.Conversor import Conversor
@@ -20,4 +21,4 @@ class ConversorAPI(MethodView):
             valor_float = float(valor)
         except ValueError:
             abort(406, message="O valor tem que ser um número real ou inteiro")
-        return conversor.converte(moeda1, moeda2, valor_float)     
+        return jsonify(conversor.converte(moeda1, moeda2, valor_float))
