@@ -7,13 +7,13 @@
 - CI/CD
 
 ### Servidores
-#### Deployment
-[Deploy Render](https://conversor-api-development.onrender.com/)
+#### Development
+[Development Render](https://conversor-api-development.onrender.com/)
 #### Production
 [Production Render](https://conversor-api.onrender.com/) 
 
 ### Documentação 
-#### Deployment
+#### Development
 [Documentação da API em Desenvolvimento com Swagger](https://conversor-api-development.onrender.com/swagger-ui)
 #### Production
 [Documentação da API em Produção com Swagger](https://conversor-api.onrender.com/swagger-ui)
