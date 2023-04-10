@@ -11,7 +11,7 @@ from models.Euro import Euro
 from models.Real import Real
 
 
-blp = Blueprint("Moedas", __name__, description="Operações nas Moedas")
+blp = Blueprint("Moeda", __name__, description="Operações nas Moedas")
 
 @blp.route("/moedas")
 class MoedaAPI(MethodView):

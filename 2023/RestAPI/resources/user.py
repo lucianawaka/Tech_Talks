@@ -9,7 +9,7 @@ from schemas import UserSchema
 
 from blocklist import BLOCKLIST
 
-blp = Blueprint("Users", "users", description="Operations on users")
+blp = Blueprint("Usuário", "users", description="Operations on users")
 
 @blp.route("/register")
 class UserRegister(MethodView):
