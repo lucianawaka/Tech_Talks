@@ -20,9 +20,14 @@ class Conversor:
             if moeda1 in self.moedas or moeda2  in self.moedas:
                 moeda1_obj = self.moedas[moeda1]
                 moeda2_obj = self.moedas[moeda2]
-        
-                valor_convertido, simbolo = moeda1_obj.converter_to(moeda2_obj, valor)
-                return jsonify({"valor":valor_convertido, "simbolo":simbolo})
+
+            if moeda1_obj.nome == moeda2_obj.nome:
+                return valor, moeda2_obj.simbolo
+            
+            converted_value = valor * moeda1_obj.valor / moeda2_obj.valor
+            valor_convertido = round(converted_value, 2)
+
+            return jsonify({"valor":valor_convertido, "simbolo":moeda2_obj.simbolo})
             
         except KeyError:
             return abort(500, message="Não é possível converter as moedas! Moedas existentes: {}".format(self.moedas.keys()))
