@@ -5,8 +5,13 @@
 - Swagger - Cookiecut
 - JWT
 - CI/CD
-[Deployement](https://conversor-api.onrender.com/)  
 
-### Documentação
-[Documentação da API no Swagger](https://conversor-api.onrender.com/swagger-ui)
+### Servidores
+#### Deployment
+[Deploy Render](https://conversor-api-development.onrender.com/)
+[Production Render](https://conversor-api.onrender.com/) 
+
+### Documentação 
+[Documentação da API em Desenvolvimento com Swagger](https://conversor-api-development.onrender.com/swagger-ui)
+[Documentação da API em Produção com Swagger](https://conversor-api.onrender.com/swagger-ui)
 
