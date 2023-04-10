@@ -2,6 +2,8 @@ from .Real import Real
 from .Dolar import Dolar
 from .Euro import Euro
 from flask_smorest import abort
+from flask import jsonify
+
 
 class Conversor:
     def __init__(self):
@@ -20,7 +22,7 @@ class Conversor:
                 moeda2_obj = self.moedas[moeda2]
         
                 valor_convertido, simbolo = moeda1_obj.converter_to(moeda2_obj, valor)
-                return {"valor":valor_convertido, "simbolo":simbolo}
+                return jsonify({"valor":valor_convertido, "simbolo":simbolo})
             
         except KeyError:
             return abort(500, message="Não é possível converter as moedas! Moedas existentes: {}".format(self.moedas.keys()))
