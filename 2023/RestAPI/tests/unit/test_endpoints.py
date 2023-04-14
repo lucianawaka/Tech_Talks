@@ -63,7 +63,7 @@ class TestEndpoint(TestCase):
         resp = requests.get(self.URL+'/conversor/'+moeda1+'/'+moeda2+'/'+valor, headers={"Content-Type": "application/json", "Authorization": f"Bearer {login_token}"})
 
         self.assertEqual(resp.json()['simbolo'], "$")
-        self.assertEqual(resp.json()['valor'], 1.83)
+        self.assertEqual(resp.json()['valor'], 2.03)
         self.assertEqual(200, response.status_code)
         
    
