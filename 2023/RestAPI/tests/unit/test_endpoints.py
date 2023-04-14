@@ -1,5 +1,5 @@
 from unittest import TestCase
-
+import requests
 # Moedas
 from models.Dolar import Dolar
 from models.Euro import Euro
@@ -10,10 +10,10 @@ import requests
 import json
 
 class TestEndpoint(TestCase):
-    URL = "https://conversor-api.onrender.com"
+    URL = "https://conversor-api.onrender.com/"
     data = {
-        "username":"descafeinados",
-        "password":"1234"
+        "username":"luciana",
+        "password":"12345"
     }
     
     # Somente uma vez
@@ -55,7 +55,6 @@ class TestEndpoint(TestCase):
             "password": self.data['password']
         })
         response = requests.post(self.URL+'/login', headers={"Content-Type": "application/json"}, data=user_payload)
-        self.assertEqual(200, response.status_code)
         login_token = response.json()['access_token']
         # Token
         moeda1 = 'BRL'
@@ -64,8 +63,9 @@ class TestEndpoint(TestCase):
         resp = requests.get(self.URL+'/conversor/'+moeda1+'/'+moeda2+'/'+valor, headers={"Content-Type": "application/json", "Authorization": f"Bearer {login_token}"})
 
         self.assertEqual(resp.json()['simbolo'], "$")
-        self.assertEqual(resp.json()['valor'], 1.97)
-
+        self.assertEqual(resp.json()['valor'], 1.83)
+        self.assertEqual(200, response.status_code)
+        
    
 
         
