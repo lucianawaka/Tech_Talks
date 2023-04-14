@@ -15,7 +15,7 @@ blp = Blueprint("Moeda", __name__, description="Operações nas Moedas")
 
 @blp.route("/moedas")
 class MoedaAPI(MethodView):
-    @jwt_required()
+    #@jwt_required()
     @blp.response(200, MoedaShema(many=True))
     def get(self):
         moedas = []
