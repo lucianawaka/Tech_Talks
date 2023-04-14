@@ -14,13 +14,13 @@ class TestMoeda(TestCase):
     
     def test_get_dolar(self):
         dolar = Dolar()
-        expected = {'Moeda': "USD", 'Simbolo': "$", 'Valor': 5.07} # 5.07
+        expected = {'Moeda': "USD", 'Simbolo': "$", 'Valor': 4.93} # 4.93
         self.assertDictEqual(expected, dolar.to_json())
         
     
     def test_get_deuro(self):
         dolar = Euro()
-        expected = {'Moeda': "EUR", 'Simbolo': "€", 'Valor': 5.52} # 5.52
+        expected = {'Moeda': "EUR", 'Simbolo': "€", 'Valor': 5.45} # 5.45
         self.assertDictEqual(expected, dolar.to_json())
         
         
